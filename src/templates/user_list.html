@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User_list</title>
+</head>
+<body>
+<table width="60%" border="1" align="center">
+    <tr>
+        <th width="20%">username</th>
+        <th width="30%">fullname</th>
+        <th width="30%">upload_record</th>
+        <th width="10%">reward_point</th>
+        <th>operate</th>
+    </tr>
+    {% for row in list %}
+    <tr>
+        <td>{{ row['username'] }}</td>
+        <td>{{ row['fullname'] }}</td>
+        <td>{{ row['upload_record'] }}</td>
+        <td>{{ row['reward_point'] }}</td>
+        <td>
+            <a href="#">Modify</a> <a href="/del?username={{ row['username'] }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

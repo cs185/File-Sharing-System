@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>store</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <h5 style="color:red;">{{ message }}</h5>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<ul>
+    {% for row in list %}
+    <li><img src="{{url_for('static', filename = 'images/' + row['goods_name'] + '.jpg' )}}"></li>
+    <li>{{ row['goods_name'] }}</li>
+    <li>{{ row['price'] }}</li>
+    <li><a href="/store/{{ row['goods_name'] }}">buy</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

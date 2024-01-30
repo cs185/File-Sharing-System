@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>REWARD</title>
+<link href="{{url_for('static', filename = 'css/styles.css')}}" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body background="{{url_for('static', filename = 'images/bkm.jpg')}}">
+<table class="T" ><tr>
+    <td><a href="/index" style="text-decoration: none"><div class="H">Hermes</div></a></td>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <td><h2 style="color:red;">{{ message }}</h2></td>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    <td><a href="/index"><img src="{{url_for('static', filename = 'images/log.png')}}" alt="log" style="max-width:50px; max-height:50px; padding-right:20%;float: right;"></a></td></tr></table>
+<div class="PM" ><img src="{{url_for('static', filename = 'images/PM.jpg')}}" alt="PM">
+    <span style="position: absolute; top: 20%; left: 15%; color: white;font-size: 55px;font-family:Brush Script MT, Brush Script Std, cursive;text-align: center "><br><strong>POINTS MALL</strong></br></span>
+	<span style="position: absolute; top: 35%; left: 15%; color: white;font-size: 30px;font-family:sans-serif;text-align: center "><br>MY POINTS: {{ points }}H</br></span>
+	</div>
+<div class="ml"><ul>
+    <li><div class="w1">I have nothing to offer but blood, toil, tears and sweat. (Winston Churchill)</div></li>
+	</ul></div>
+<div class="rtb"><ul><li>
+</li></ul></div>
+<table class="ft2" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        {% for row in list %}
+            <td class="R1T">
+                <ul class="R1">
+                    <li><img src="{{url_for('static', filename = 'images/' + row['goods_name'] + '.png' )}}" alt="SBS1" style="width: 160px; height: 160px"></li>
+                    <li>{{ row['goods_name'] }}</li>
+                    <li>Need: {{ row['price'] }}H</li>
+                    <li><button><a href="/store/{{ row['goods_name'] }}">Exchange</a></button></li>
+                </ul>
+            </td>
+        {% endfor %}
+        <td class="R1T">
+            <ul class="R1">
+                <li><img src="{{url_for('static', filename = 'images/coming-soon.png')}}" alt="" style="width: 160px; height: 160px"></li>
+                <li>Coming soon</li>
+                <li>Need: ---</li>
+                <li><button>Exchange</button></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="R1T">
+            <ul class="R1">
+                <li><img src="{{url_for('static', filename = 'images/coming-soon.png')}}" alt="" style="width: 160px; height: 160px"></li>
+                <li>Coming soon</li>
+                <li>Need: ---</li>
+                <li><button>Exchange</button></li>
+            </ul>
+        </td>
+        <td class="R1T">
+            <ul class="R1">
+                <li><img src="{{url_for('static', filename = 'images/coming-soon.png')}}" alt="" style="width: 160px; height: 160px"></li>
+                <li>Coming soon</li>
+                <li>Need: ---</li>
+                <li><button>Exchange</button></li>
+            </ul>
+        </td>
+        <td class="R1T">
+            <ul class="R1">
+                <li><img src="{{url_for('static', filename = 'images/coming-soon.png')}}" alt="" style="width: 160px; height: 160px"></li>
+                <li>Coming soon</li>
+                <li>Need: ---</li>
+                <li><button>Exchange</button></li>
+            </ul>
+        </td>
+        <td class="R1T">
+            <ul class="R1">
+                <li><img src="{{url_for('static', filename = 'images/coming-soon.png')}}" alt="" style="width: 160px; height: 160px"></li>
+                <li>Coming soon</li>
+                <li>Need: ---</li>
+                <li><button>Exchange</button></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+	
+<div class="foot"><ul>
+	<li><div class="w2">Copyright © 2019 Team B03 (Alita) All rights reserved (alita.hermes@gmail.com)</div></li>
+	</ul></div>
+    </div>		
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hermes</title>
+    <h1>INDEX PAGE</h1>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						{% for message in messages %}
+                            <h5 style="color:red;">{{ message }}</h5>
+						{% endfor %}
+					{% endif %}
+				{% endwith %}
+<h1><a href="/store">Store</a></h1>
+<h2>math</h2>
+<form action="/upload_math" method="post" enctype="multipart/form-data">
+    <input type="file" name="math" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for math_dict in math_list %}
+    <tr>
+        <td><a href="/download/{{ math_dict['filename'] }}/{{ math_dict['type'] }}">{{ math_dict['filename'] }}</a></td>
+        <td>{{ math_dict['uploader'] }}</td>
+        <td>{{ math_dict['type'] }}</td>
+        <td>{{ math_dict['downloads'] }}</td>
+        <td>{{ math_dict['likes'] }}</td>
+        <td><a href="/likes/{{ math_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>TOFEL</h2>
+<form action="/upload_TOFEL" method="post" enctype="multipart/form-data">
+    <input type="file" name="TOFEL" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for TOFEL_dict in TOFEL_list %}
+    <tr>
+        <td><a href="/download/{{ TOFEL_dict['filename'] }}/{{ TOFEL_dict['type'] }}">{{ TOFEL_dict['filename'] }}</a></td>
+        <td>{{ TOFEL_dict['uploader'] }}</td>
+        <td>{{ TOFEL_dict['type'] }}</td>
+        <td>{{ TOFEL_dict['downloads'] }}</td>
+        <td>{{ TOFEL_dict['likes'] }}</td>
+        <td><a href="/likes/{{ TOFEL_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>IELTS</h2>
+<form action="/upload_IELTS" method="post" enctype="multipart/form-data">
+    <input type="file" name="IELTS" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for IELTS_dict in IELTS_list %}
+    <tr>
+        <td><a href="/download/{{ IELTS_dict['filename'] }}/{{ IELTS_dict['type'] }}">{{ IELTS_dict['filename'] }}</a></td>
+        <td>{{ IELTS_dict['uploader'] }}</td>
+        <td>{{ IELTS_dict['type'] }}</td>
+        <td>{{ IELTS_dict['downloads'] }}</td>
+        <td>{{ IELTS_dict['likes'] }}</td>
+        <td><a href="/likes/{{ IELTS_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>info101</h2>
+<form action="/upload_info101" method="post" enctype="multipart/form-data">
+    <input type="file" name="info101" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for info101_dict in info101_list %}
+    <tr>
+        <td><a href="/download/{{ info101_dict['filename'] }}/{{ info101_dict['type'] }}">{{ info101_dict['filename'] }}</a></td>
+        <td>{{ info101_dict['uploader'] }}</td>
+        <td>{{ info101_dict['type'] }}</td>
+        <td>{{ info101_dict['downloads'] }}</td>
+        <td>{{ info101_dict['likes'] }}</td>
+        <td><a href="/likes/{{ info101_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>info102</h2>
+<form action="/upload_info102" method="post" enctype="multipart/form-data">
+    <input type="file" name="info102" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for info102_dict in info102_list %}
+    <tr>
+        <td><a href="/download/{{ info102_dict['filename'] }}/{{ info102_dict['type'] }}">{{ info102_dict['filename'] }}</a></td>
+        <td>{{ info102_dict['uploader'] }}</td>
+        <td>{{ info102_dict['type'] }}</td>
+        <td>{{ info102_dict['downloads'] }}</td>
+        <td>{{ info102_dict['likes'] }}</td>
+        <td><a href="/likes/{{ info102_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>info151</h2>
+<form action="/upload_info151" method="post" enctype="multipart/form-data">
+    <input type="file" name="info151" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for info151_dict in info151_list %}
+    <tr>
+        <td><a href="/download/{{ info151_dict['filename'] }}/{{ info151_dict['type'] }}">{{ info151_dict['filename'] }}</a></td>
+        <td>{{ info151_dict['uploader'] }}</td>
+        <td>{{ info151_dict['type'] }}</td>
+        <td>{{ info151_dict['downloads'] }}</td>
+        <td>{{ info151_dict['likes'] }}</td>
+        <td><a href="/likes/{{ info151_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>CI</h2>
+<form action="/upload_CI" method="post" enctype="multipart/form-data">
+    <input type="file" name="CI" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for CI_dict in CI_list %}
+    <tr>
+        <td><a href="/download/{{ CI_dict['filename'] }}/{{ CI_dict['type'] }}">{{ CI_dict['filename'] }}</a></td>
+        <td>{{ CI_dict['uploader'] }}</td>
+        <td>{{ CI_dict['type'] }}</td>
+        <td>{{ CI_dict['downloads'] }}</td>
+        <td>{{ CI_dict['likes'] }}</td>
+        <td><a href="/likes/{{ CI_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>CS</h2>
+<form action="/upload_CS" method="post" enctype="multipart/form-data">
+    <input type="file" name="CS" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for CS_dict in CS_list %}
+    <tr>
+        <td><a href="/download/{{ CS_dict['filename'] }}/{{ CS_dict['type'] }}">{{ CS_dict['filename'] }}</a></td>
+        <td>{{ CS_dict['uploader'] }}</td>
+        <td>{{ CS_dict['type'] }}</td>
+        <td>{{ CS_dict['downloads'] }}</td>
+        <td>{{ CS_dict['likes'] }}</td>
+        <td><a href="/likes/{{ CS_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>psychology</h2>
+<form action="/upload_psychology" method="post" enctype="multipart/form-data">
+    <input type="file" name="psychology" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for psychology_dict in psychology_list %}
+    <tr>
+        <td><a href="/download/{{ psychology_dict['filename'] }}/{{ psychology_dict['type'] }}">{{ psychology_dict['filename'] }}</a></td>
+        <td>{{ psychology_dict['uploader'] }}</td>
+        <td>{{ psychology_dict['type'] }}</td>
+        <td>{{ psychology_dict['downloads'] }}</td>
+        <td>{{ psychology_dict['likes'] }}</td>
+        <td><a href="/likes/{{ psychology_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>cognitive psychology</h2>
+<form action="/upload_cognitive_psychology" method="post" enctype="multipart/form-data">
+    <input type="file" name="cognitive_psychology" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+    </tr>
+    {% for cognitive_psychology_dict in cognitive_psychology_list %}
+    <tr>
+        <td><a href="/download/{{ cognitive_psychology_dict['filename'] }}/{{ cognitive_psychology_dict['type'] }}">{{ cognitive_psychology_dict['filename'] }}</a></td>
+        <td>{{ cognitive_psychology_dict['uploader'] }}</td>
+        <td>{{ cognitive_psychology_dict['type'] }}</td>
+        <td>{{ cognitive_psychology_dict['downloads'] }}</td>
+        <td>{{ cognitive_psychology_dict['likes'] }}</td>
+        <td><a href="/likes/{{ cognitive_psychology_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h2>others</h2>
+<form action="/upload_others" method="post" enctype="multipart/form-data">
+    <input type="file" name="others" value="choose file"><br><br>
+    <input type="submit" name="start_upload">
+</form>
+<table>
+    <tr>
+        <td>filename</td>
+        <td>uploader</td>
+        <td>type</td>
+        <td>downloads</td>
+        <td>likes</td>
+
+    </tr>
+    {% for others_dict in others_list %}
+    <tr>
+        <td><a href="/download/{{ others_dict['filename'] }}/{{ others_dict['type'] }}">{{ others_dict['filename'] }}</a></td>
+        <td>{{ others_dict['uploader'] }}</td>
+        <td>{{ others_dict['type'] }}</td>
+        <td>{{ others_dict['downloads'] }}</td>
+        <td>{{ others_dict['likes'] }}</td>
+        <td><a href="/likes/{{ others_dict['filename'] }}">LIKE</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<br>
+<h4><a href="personal_center">Personal Center</a></h4>
+<!--<a href="C:/Users/45138/PycharmProjects/Hermes/uploads/list.txt" download="list.txt">点击下载</a>-->
+</body>
+</html>

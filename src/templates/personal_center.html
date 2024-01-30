@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>USER</title>
+<link href="{{url_for('static', filename = 'css/styles.css')}}" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body background="{{url_for('static', filename = 'images/bk.jpg')}}">
+<table class="T" ><tr>
+    <td><a href="/index" style="text-decoration: none"><div class="H">Hermes</div></a></td><td>
+	<!--<a href="#"><img src="images/log.png" alt="log" style="max-width:50px; max-height:50px; padding-right:20%;float: right;"></a>-->
+</td></tr></table>
+<div class="cover"><img src="{{url_for('static', filename = 'images/cover.jpg')}}" alt="user-cover">
+	</div>
+<div class="u1"><ul>
+    <li><div class="w3">Whose speechless song, being many, seeming one, Sings this to thee: "Thou single wilt prove none."</div></li>
+	</ul></div>
+<div class="u2"><ul>
+    <li><a href="#Info"><strong>Information</strong></a></li>
+	<li><a href="#Resources"><strong>Resources</strong></a></li>
+    <li><a href="#Points"><strong>Points</strong></a></li>
+    <li><a href="#Rewards"><strong>Rewards</strong></a></li>
+    <li><a href="#Mall"><strong>Points Mall</strong></a></li>
+	</ul></div>
+<table class="ut"><tr>	
+	<td><div class="user"><img src="{{url_for('static', filename = 'images/user.png')}}" alt="user" align="center"></div><div class="name"><strong>Username:{{ username }}</strong></div></td>
+	<td><div class="edit"><img src="{{url_for('static', filename = 'images/edit.jpeg')}}" alt="edit profile" align="center"></div></td></tr></table>
+<table class="ft">
+<tr><td>
+	<div class="in2" id="Info"><ul><li><strong>Fullname:</strong></li>
+		<li>{{ fullname }}</li></ul></div>
+	</td>
+	</tr>	
+<tr><td>
+	<div class="in3" id="Resources"><ul><li><strong>Upload record:</strong></li>
+		<li>
+		<ul>
+			{% if upload_record != None %}
+				{% for files in upload_record.split(',') %}
+					<li>{{ files }}</li>
+				{% endfor %}
+			{% else %}
+				<li>{{ upload_record }}</li>
+			{% endif %}
+		</ul>
+		</li>
+	</ul></div>
+	</td>
+	</tr>
+<tr><td>
+	<div class="in4" id="Points"><ul><li><strong>Reward points:</strong></li>
+		<li>{{ reward_points }}H</li></ul></div>
+	</td>
+	</tr>	
+<tr><td>
+	<div class="in5" id="Rewards"><ul><li><strong>Purchase record:</strong></li>
+		<li>
+			{% if purchase_record != None %}
+				{% for files in purchase_record.split(',') %}
+					<li>{{ files }}</li>
+				{% endfor %}
+			{% else %}
+				<li>{{ purchase_record }}</li>
+			{% endif %}
+		</li></ul></div>
+	</td>
+	</tr>
+<tr><td>
+	<div class="mall" id="Mall"><ul><a href="/store" style="text-decoration: none"><li><strong>Points Mall</strong></li></a></ul></div>
+	</td>
+	</tr>	
+</table>
+<div class="foot"><ul>
+	<li><div class="w2">Copyright © 2019 Team B03 (Alita) All rights reserved (alita.hermes@gmail.com)</div></li>
+	</ul></div>
+    </div>
+</body>
+</html>

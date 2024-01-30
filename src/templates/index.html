@@ -1,0 +1,538 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HOME</title>
+<link href="{{url_for('static', filename = 'css/styles.css')}}" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<script type="text/javascript" src="{{url_for('static', filename = 'js/styles.js')}}"></script>
+	
+<table class="T" ><tr>
+    <td><a href="/about_us" style="text-decoration: none"><div class="H">Hermes</div></a></td>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+	<td><h2 style="color:red;">{{ message }}</h2></td>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+	<td><a href="#"><img src="{{url_for('static', filename = 'images/log.png')}}" alt="log" style="max-width:50px; max-height:50px; padding-right:20%;float: right;"></a></td></tr></table>
+<div class="HP" ><img src="{{url_for('static', filename = 'images/HP.jpg')}}" alt="HP">
+	<span style="position: absolute; top: 40%; left: 15%; color: white;font-size: 50px;font-family:sans-serif;text-align: center ">The Best<br>Reward System</br></span>
+	</div>
+<div class="l1"><ul>
+    <li><a href="/personal_center" style="text-decoration: none"><strong><div class="na">PERSONAL CENTER</div></strong></a></li>
+    <li><div class="dropdown"><a href="" style="text-decoration: none" class="dropbtn"><strong><div class="na">RESOURCE</div></strong></a><div class="dropdown-content">
+<div class="dropdown0"><a href="#" class="dropbtn">CALCULUS</a><div class="dropdown-content0">
+	<a href="#CA">CALCULUS A</a>
+    <a href="#CB">CALCULUS B</a></div></div>
+<div class="dropdown1"><a href="#" class="dropbtn">ENGLISH</a><div class="dropdown-content1">
+	<a href="#IE">IELTS</a>
+    <a href="#TO">TOEFL</a></div></div>
+<div class="dropdown2"><a href="#" class="dropbtn">INFO</a><div class="dropdown-content2">
+	<a href="#101">INFO 101</a>
+    <a href="#102">INFO 102</a>
+    <a href="#151">INFO 151</a></div></div>
+<div class="dropdown3"><a href="#" class="dropbtn">CI</a><div class="dropdown-content3">
+	<a href="#c101">CI 101</a>
+    <a href="#c103">CI 103</a></div></div>
+<div class="dropdown4"><a href="#" class="dropbtn">CS</a><div class="dropdown-content4">
+	<a href="#c171">CS 171</a></div></div>	
+<div class="dropdown5"><a href="#" class="dropbtn">PSYCHOLOGY</a><div class="dropdown-content5">
+	<a href="#ps">PSYCHOLOGY</a>
+    <a href="#cps">COGNITIVE PSYCHOLOGY</a></div></div>
+<div class="dropdown6"><a href="#" class="dropbtn">EXTRA</a><div class="dropdown-content6">
+	<a href="#ot">OTHERS</a></div></div>
+</div>
+</div></li>
+    <li><a href="/store" style="text-decoration: none"><strong><div class="na">STORE</div></strong></a></li>
+	</ul></div>
+<div class="l2"><ul>
+    <li><div class="w1">Provide the highest quality classroom resources.</div></li>
+	</ul></div>
+
+<script type="text/javascript">
+        function changeAgentContent1(){
+            document.getElementById("inputFileAgent1").value = document.getElementById("inputFile1").value;
+        }
+        function changeAgentContent2(){
+            document.getElementById("inputFileAgent2").value = document.getElementById("inputFile2").value;
+        }
+        function changeAgentContent3(){
+            document.getElementById("inputFileAgent3").value = document.getElementById("inputFile3").value;
+        }
+        function changeAgentContent4(){
+            document.getElementById("inputFileAgent4").value = document.getElementById("inputFile4").value;
+        }
+        function changeAgentContent5(){
+            document.getElementById("inputFileAgent5").value = document.getElementById("inputFile5").value;
+        }
+        function changeAgentContent6(){
+            document.getElementById("inputFileAgent6").value = document.getElementById("inputFile6").value;
+        }
+        function changeAgentContent7(){
+            document.getElementById("inputFileAgent7").value = document.getElementById("inputFile7").value;
+        }
+        function changeAgentContent8(){
+            document.getElementById("inputFileAgent8").value = document.getElementById("inputFile8").value;
+        }
+        function changeAgentContent9(){
+            document.getElementById("inputFileAgent9").value = document.getElementById("inputFile9").value;
+        }
+        function changeAgentContent10(){
+            document.getElementById("inputFileAgent10").value = document.getElementById("inputFile10").value;
+        }
+        function changeAgentContent11(){
+            document.getElementById("inputFileAgent11").value = document.getElementById("inputFile11").value;
+        }
+
+    </script>
+		
+<div class="l3" id="CA"><a id="CB"></a>
+	<ul>
+		<li><div class="pic">
+					<form action="/upload_math" method="post" enctype="multipart/form-data">
+						<input type="file" id="inputFile1" name="math" style="display:none" onchange="changeAgentContent1()" />
+                        <input type="text" value="" disabled id="inputFileAgent1" />
+                        <input type="button" onclick="document.getElementById('inputFile1').click()" value="Browse..." />
+    					<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+					</form>
+			<img src="{{url_for('static', filename = 'images/cal.gif')}}" alt="cal"></div>
+			<div class="mts"><table class="mt">
+
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+
+		<tbody>
+		{% for math_dict in math_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ math_dict['filename'] }}/{{ math_dict['type'] }}" style="text-decoration: none">{{ math_dict['filename'].strip('F') }}</a></div></td>
+				<td>{{ math_dict['uploader'] }}</td>
+        		<td>{{ math_dict['type'] }}</td>
+				<td>{{ math_dict['downloads'] }}</td>
+        		<td>{{ math_dict['likes'] }}</td>
+				<td><a href="/likes/{{ math_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+		{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="IE">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_IELTS" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile2" name="IELTS" style="display:none" onchange="changeAgentContent2()" />
+            <input type="text" value="" disabled id="inputFileAgent2" />
+            <input type="button" onclick="document.getElementById('inputFile2').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+			</form>
+			<img src="{{url_for('static', filename = 'images/ielts.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+
+		{% for IELTS_dict in IELTS_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ IELTS_dict['filename'] }}/{{ IELTS_dict['type'] }}" style="text-decoration: none">{{ IELTS_dict['filename'].strip('F') }}</a></div></td>
+				<td>{{ IELTS_dict['uploader'] }}</td>
+        		<td>{{ IELTS_dict['type'] }}</td>
+        		<td>{{ IELTS_dict['downloads'] }}</td>
+        		<td>{{ IELTS_dict['likes'] }}</td>
+				<td><a href="/likes/{{ IELTS_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			<tr>
+		{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="TO">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_TOFEL" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile3" name="TOFEL" style="display:none" onchange="changeAgentContent3()" />
+            <input type="text" value="" disabled id="inputFileAgent3" />
+            <input type="button" onclick="document.getElementById('inputFile3').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/toefl.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+
+		{% for TOFEL_dict in TOFEL_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ TOFEL_dict['filename'] }}/{{ TOFEL_dict['type'] }}" style="text-decoration: none">{{ TOFEL_dict['filename'].strip('F') }}</a></div></td>
+		        <td>{{ TOFEL_dict['uploader'] }}</td>
+        		<td>{{ TOFEL_dict['type'] }}</td>
+				<td>{{ TOFEL_dict['downloads'] }}</td>
+        		<td>{{ TOFEL_dict['likes'] }}</td>
+				<td><a href="/likes/{{ TOFEL_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="101">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_info101" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile4" name="info101" style="display:none" onchange="changeAgentContent4()" />
+			<input type="text" value="" disabled id="inputFileAgent4" />
+			<input type="button" onclick="document.getElementById('inputFile4').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/info101.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+
+		{% for info101_dict in info101_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ info101_dict['filename'] }}/{{ info101_dict['type'] }}" style="text-decoration: none">{{ info101_dict['filename'].strip('F') }}</a></div></td>
+				<td>{{ info101_dict['uploader'] }}</td>
+        		<td>{{ info101_dict['type'] }}</td>
+        		<td>{{ info101_dict['downloads'] }}</td>
+        		<td>{{ info101_dict['likes'] }}</td>
+				<td><a href="/likes/{{ info101_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+		{% endfor %}
+
+			</tr>
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="102">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_info102" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile5" name="info102" style="display:none" onchange="changeAgentContent5()" />
+            <input type="text" value="" disabled id="inputFileAgent5" />
+            <input type="button" onclick="document.getElementById('inputFile5').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/info102.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for info102_dict in info102_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ info102_dict['filename'] }}/{{ info102_dict['type'] }}" style="text-decoration: none">{{ info102_dict['filename'].strip('F') }}</a></div></td>
+				<td>{{ info102_dict['uploader'] }}</td>
+        		<td>{{ info102_dict['type'] }}</td>
+        		<td>{{ info102_dict['downloads'] }}</td>
+        		<td>{{ info102_dict['likes'] }}</td>
+				<td><a href="/likes/{{ info102_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+		{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="151">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_info151" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile6" name="info151" style="display:none" onchange="changeAgentContent6()" />
+            <input type="text" value="" disabled id="inputFileAgent6" />
+            <input type="button" onclick="document.getElementById('inputFile6').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/info151.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for info151_dict in info151_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ info151_dict['filename'] }}/{{ info151_dict['type'] }}" style="text-decoration: none">{{ info151_dict['filename'].strip('F') }}</a></div></td>
+        		<td>{{ info151_dict['uploader'] }}</td>
+        		<td>{{ info151_dict['type'] }}</td>
+        		<td>{{ info151_dict['downloads'] }}</td>
+        		<td>{{ info151_dict['likes'] }}</td>
+				<td><a href="/likes/{{ info151_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+		{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="c101"><a id="c103"></a>
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_CI" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile7" name="CI" style="display:none" onchange="changeAgentContent7()" />
+            <input type="text" value="" disabled id="inputFileAgent7" />
+            <input type="button" onclick="document.getElementById('inputFile7').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/ci.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+
+		{% for CI_dict in CI_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ CI_dict['filename'] }}/{{ CI_dict['type'] }}" style="text-decoration: none">{{ CI_dict['filename'].strip('F') }}</a></div></td>
+
+        		<td>{{ CI_dict['uploader'] }}</td>
+        		<td>{{ CI_dict['type'] }}</td>
+        		<td>{{ CI_dict['downloads'] }}</td>
+        		<td>{{ CI_dict['likes'] }}</td>
+				<td><a href="/likes/{{ CI_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			</tr>
+    	{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="c171">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_CS" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile8" name="CS" style="display:none" onchange="changeAgentContent8()" />
+            <input type="text" value="" disabled id="inputFileAgent8" />
+            <input type="button" onclick="document.getElementById('inputFile8').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/cs.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for CS_dict in CS_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ CS_dict['filename'] }}/{{ CS_dict['type'] }}" style="text-decoration: none">{{ CS_dict['filename'].strip('F') }}</a></div></td>
+        		<td>{{ CS_dict['uploader'] }}</td>
+        		<td>{{ CS_dict['type'] }}</td>
+        		<td>{{ CS_dict['downloads'] }}</td>
+        		<td>{{ CS_dict['likes'] }}</td>
+				<td><a href="/likes/{{ CS_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+		    </tr>
+    	{% endfor %}
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="ps">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_psychology" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile9" name="psychology" style="display:none" onchange="changeAgentContent9()" />
+            <input type="text" value="" disabled id="inputFileAgent9" />
+            <input type="button" onclick="document.getElementById('inputFile9').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/psy.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for psychology_dict in psychology_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ psychology_dict['filename'] }}/{{ psychology_dict['type'] }}" style="text-decoration: none">{{ psychology_dict['filename'].strip('F') }}</a></div></td>
+        		<td>{{ psychology_dict['uploader'] }}</td>
+        		<td>{{ psychology_dict['type'] }}</td>
+        		<td>{{ psychology_dict['downloads'] }}</td>
+        		<td>{{ psychology_dict['likes'] }}</td>
+				<td><a href="/likes/{{ psychology_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+		    </tr>
+    	{% endfor %}
+
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="cps">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_cognitive_psychology" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile10" name="cognitive_psychology" style="display:none" onchange="changeAgentContent10()" />
+            <input type="text" value="" disabled id="inputFileAgent10" />
+            <input type="button" onclick="document.getElementById('inputFile10').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+			<img src="{{url_for('static', filename = 'images/cpsy.gif')}}" alt="cal"></div>
+			<div class="mts">
+
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for cognitive_psychology_dict in cognitive_psychology_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ cognitive_psychology_dict['filename'] }}/{{ cognitive_psychology_dict['type'] }}" style="text-decoration: none">{{ cognitive_psychology_dict['filename'].strip('F') }}</a></div></td>
+        		<td>{{ cognitive_psychology_dict['uploader'] }}</td>
+        		<td>{{ cognitive_psychology_dict['type'] }}</td>
+        		<td>{{ cognitive_psychology_dict['downloads'] }}</td>
+        		<td>{{ cognitive_psychology_dict['likes'] }}</td>
+				<td><a href="/likes/{{ cognitive_psychology_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			    </tr>
+    	{% endfor %}
+			<tr>
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+<div class="l3" id="ot">
+	<ul>
+		<li><div class="pic">
+			<form action="/upload_others" method="post" enctype="multipart/form-data">
+    		<input type="file" id="inputFile11" name="others" style="display:none" onchange="changeAgentContent11()" />
+            <input type="text" value="" disabled id="inputFileAgent11" />
+            <input type="button" onclick="document.getElementById('inputFile11').click()" value="Browse..." />
+    		<input type="submit" name="start_upload" value="Submit" onclick="document.formen.picpath.click()">
+		</form>
+				<img src="{{url_for('static', filename = 'images/ex.gif')}}" alt="cal">
+				<div class="mts">
+
+
+				<table class="mt">
+		<thead>
+			<tr>
+				<td><strong>Filename</strong></td>
+				<td><strong>Uploader</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Downloads</strong></td>
+				<td><strong>Likes</strong></td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for others_dict in others_list %}
+			<tr>
+				<td><div class="file"><a href="/download/{{ others_dict['filename'] }}/{{ others_dict['type'] }}" style="text-decoration: none">{{ others_dict['filename'] }}</a></div></td>
+        		<td>{{ others_dict['uploader'] }}</td>
+        		<td>{{ others_dict['type'] }}</td>
+        		<td>{{ others_dict['downloads'] }}</td>
+        		<td>{{ others_dict['likes'] }}</td>
+				<td><a href="/likes/{{ others_dict['filename'] }}"><button type="button"  id="but" onclick="javascript:{this.disabled=true;}" >LIKE</button></a></td>
+			    </tr>
+    	{% endfor %}
+		</tbody>
+				</table></div>
+    </li>
+	</ul></div><div class="htb"><ul><li></li></ul></div>
+
+<div class="l9"><ul>
+    <li><div class="w1">Reward the best providers.</div></li>
+	</ul></div>
+    <div class="foot"><ul>
+	<li><div class="w2">Copyright © 2019 Team B03 (Alita) All rights reserved (alita.hermes@gmail.com)</div></li>
+	</ul></div>
+    </div>	
+</body>
+</html>
